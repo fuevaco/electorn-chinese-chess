@@ -1,7 +1,7 @@
 import { BasePiece } from "./BaseChess";
 
 /**
- * 马
+ * 馬
  */
 export class Knight extends BasePiece {
   GetChineseMovementName(
@@ -14,7 +14,7 @@ export class Knight extends BasePiece {
     throw new Error("Method not implemented.");
   }
   GetName(): string {
-    return "马";
+    return "馬";
   }
   GetCode(): string {
     return this.isRed ? "N" : "n";
@@ -30,22 +30,22 @@ export class Knight extends BasePiece {
   ): [number, number][] {
     let movements: [number, number][] = [];
 
-    //1点钟方向
+    //1點鐘方向
     movements.push([x + 1, y - 2]);
-    //5点钟方向
+    //5點鐘方向
     movements.push([x + 2, y - 1]);
-    //7点钟方向
+    //7點鐘方向
     movements.push([x + 2, y + 1]);
-    //11点钟方向
+    //11點鐘方向
     movements.push([x + 1, y + 2]);
 
-    //23点钟方向
+    //23點鐘方向
     movements.push([x - 1, y - 2]);
-    //19点钟方向
+    //19點鐘方向
     movements.push([x - 2, y - 1]);
-    //17点钟方向
+    //17點鐘方向
     movements.push([x - 2, y + 1]);
-    //13点钟方向
+    //13點鐘方向
     movements.push([x - 1, y + 2]);
 
     movements = movements.filter(([tx, ty]) => {

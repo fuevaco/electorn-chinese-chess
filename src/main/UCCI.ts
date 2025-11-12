@@ -174,40 +174,40 @@ export class ChessEngine {
       const textChunk = data.toString("utf8");
       this.resultBuffer += textChunk;
       // console.log("Buffered message received: ", this.resultBuffer, textChunk);
-      // 普通返回，不知道有多少行，收到即返回；很可能丢东西，即返回长短不确定。
-      // 但不影响总的功能，因为不需要程序处理
+      // 普通返回，不知道有多少行，收到即返回；很可能丟東西，即返回長短不確定。
+      // 但不影響總的功能，因為不需要程序處理
       // INFO 的返回，需要一直等待bestmove...
 
-      // 如果不是整行，则收满整行；否则，是个状态机
+      // 如果不是整行，則收滿整行；否則，是個狀態機
 
       const lastChar = textChunk.substring(textChunk.length - 1);
 
       if (lastChar !== "\n") {
         // need buffer this
-        return; // 不callback，继续接
+        return; // 不callback，繼續接
       }
 
       switch (true) {
-        // 如果含nobestmove，则为结束
+        // 如果含nobestmove，則為結束
         case this.resultBuffer.indexOf(NO_BEST_MOVE) !== -1:
           console.log("receive nobestmove stop");
           this.IN_GO_WAITING = false;
           this.resultBuffer += textChunk;
           this.callback(null, this.resultBuffer);
-          this.resultBuffer = ""; // 清空缓存
+          this.resultBuffer = ""; // 清空緩存
           break;
 
-        // 如果含bestmove，则为结束
+        // 如果含bestmove，則為結束
         case this.resultBuffer.indexOf(BEST_MOVE) !== -1:
           console.log("receive bestmove stop");
           this.IN_GO_WAITING = false;
           this.resultBuffer += textChunk;
           console.log("[out:bestmove]:", this.resultBuffer);
           this.callback(null, this.resultBuffer);
-          this.resultBuffer = ""; // 清空缓存
+          this.resultBuffer = ""; // 清空緩存
           break;
 
-        // 如果含ucciok||uciok，则为结束
+        // 如果含ucciok||uciok，則為結束
         case this.resultBuffer.indexOf("ucciok") !== -1 ||
           (this.resultBuffer.indexOf("uciok") !== -1 && this.resultBuffer.indexOf("option") !== -1  && this.resultBuffer.lastIndexOf("uciok") > this.resultBuffer.lastIndexOf("option")):
           console.log("receive ok stop");
@@ -215,32 +215,32 @@ export class ChessEngine {
           this.resultBuffer += textChunk;
           console.log("[out:ok]:", this.resultBuffer);
           this.callback(null, this.resultBuffer);
-          this.resultBuffer = ""; // 清空缓存
+          this.resultBuffer = ""; // 清空緩存
           break;
-        // 如果含bye，则为结束
+        // 如果含bye，則為結束
         case this.resultBuffer.indexOf("bye") !== -1:
           console.log("receive bye stop");
           this.IN_GO_WAITING = false;
           this.resultBuffer += textChunk;
           this.callback(null, this.resultBuffer);
-          this.resultBuffer = ""; // 清空缓存
+          this.resultBuffer = ""; // 清空緩存
           break;
 
-        // 如果含INFO，则将信息buffer后继续，不callback，继续接
+        // 如果含INFO，則將信息buffer後繼續，不callback，繼續接
         case this.resultBuffer.indexOf(INFO) !== -1:
           this.resultBuffer += textChunk;
           break;
 
         default:
           if (!this.IN_GO_WAITING) {
-            // 又没有bestmove,又没有info，则是其它指令，直接返回吧。
+            // 又沒有bestmove,又沒有info，則是其它指令，直接返回吧。
             if (this.callback) {
               // When first startup, if there is console response,
               // then callback is null. Might cause error.
               this.callback(null, textChunk);
             }
           } else {
-            // 还是INFO的等待返回中，必须继续等
+            // 還是INFO的等待返回中，必須繼續等
             this.resultBuffer += textChunk;
           }
           break;

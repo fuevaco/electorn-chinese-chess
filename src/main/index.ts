@@ -54,7 +54,7 @@ const createWindow = (): void => {
   require("@electron/remote/main").enable(mainWindow.webContents);
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
-  // 在开发环境和生产环境均可通过快捷键打开devTools
+  // 在開發環境和生產環境均可通過快捷鍵打開devTools
   globalShortcut.register("CommandOrControl+Shift+i", function () {
     mainWindow.webContents.openDevTools({ mode: "detach" });
   });

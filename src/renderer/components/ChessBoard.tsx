@@ -111,7 +111,7 @@ export const ChessBoard = React.memo(({ rotation, fen }: ChessBoardProps) => {
             const endY = positionY * spaceY + startY - chessSize / 2;
             const nextFen = FEN.UpdateFen(fen, select.x, select.y, x, y);
             if (nextFen.isChecking(!turn) || nextFen.isKingFacing()) {
-                //被对方将军或者白脸，则点击无效
+                //被對方將軍或者白臉，則點擊無效
                 goErrorSound.play();
                 return;
             }
@@ -121,7 +121,7 @@ export const ChessBoard = React.memo(({ rotation, fen }: ChessBoardProps) => {
 
             ChessMoving(chessRef.current, endX, endY, () => {
                 if (checkmate) {
-                    //将死对方不播放声音
+                    //將死對方不播放聲音
                 }
                 else if (checking) {
                     checkingSound.play()

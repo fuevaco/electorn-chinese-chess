@@ -16,19 +16,19 @@ test("Test King", () => {
   const red = new King(true);
   const black = new King(false);
   //red
-  expect(red.GetName()).toBe("帅");
+  expect(red.GetName()).toBe("帥");
   expect(red.GetCode()).toBe("K");
   //black
-  expect(black.GetName()).toBe("将");
+  expect(black.GetName()).toBe("將");
   expect(black.GetCode()).toBe("k");
 
   let fen = new FEN("4k4/9/9/9/9/9/9/9/9/5K3 w - - 0 1");
   let board = fen.getChessArray();
   expect(red.GetChineseMovementName(5, 9, 5, 8, board)).toBe(
-    "帅四进一"
+    "帥四進一"
   );
   expect(black.GetChineseMovementName(4, 0, 4, 1, board)).toBe(
-    "将5进1"
+    "將5進1"
   );
   let m = red.GetAvailableMovement(5, 9, board, PieceArray);
   expect(m.length).toBe(1)
@@ -85,10 +85,10 @@ test("Test Knight", () => {
   const red = new Knight(true);
   const black = new Knight(false);
   //red
-  expect(red.GetName()).toBe("马");
+  expect(red.GetName()).toBe("馬");
   expect(red.GetCode()).toBe("N");
   //black
-  expect(black.GetName()).toBe("马");
+  expect(black.GetName()).toBe("馬");
   expect(black.GetCode()).toBe("n");
 });
 
@@ -96,10 +96,10 @@ test("Test Rook", () => {
   const red = new Rook(true);
   const black = new Rook(false);
   //red
-  expect(red.GetName()).toBe("车");
+  expect(red.GetName()).toBe("車");
   expect(red.GetCode()).toBe("R");
   //black
-  expect(black.GetName()).toBe("车");
+  expect(black.GetName()).toBe("車");
   expect(black.GetCode()).toBe("r");
 });
 

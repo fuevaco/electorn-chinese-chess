@@ -9,20 +9,20 @@ const defaultFenInit =
  */
 export class FEN {
   /**
-   * 当前fen码
+   * 當前fen碼
    */
   private fenstr: string;
   /**
-   * 初始fen码
+   * 初始fen碼
    */
   private fenInit: string;
 
   /**
-   * 盘面是否合法
+   * 盤面是否合法
    */
   private valid: boolean;
   /**
-   * 红方走棋：true 黑方走棋：false
+   * 紅方走棋：true 黑方走棋：false
    */
   private turn: boolean;
 
@@ -30,12 +30,12 @@ export class FEN {
 
   private moves: string;
   /**
-   * 盘面数组
+   * 盤面數組
    */
   private arr: Array<Array<number>>;
 
   /**
-   * 检测fen码
+   * 檢測fen碼
    * @param s
    * @returns
    */
@@ -209,7 +209,7 @@ export class FEN {
   }
 
   /**
-   * 是否某方将军
+   * 是否某方將軍
    */
   isChecking(isRed = this.isRedTurn()): boolean {
     let [kingPostionX, kingPostionY] = [0, 0];
@@ -273,12 +273,12 @@ export class FEN {
   }
 
   /**
-   * 是否某方将死对方
-   * 实现逻辑：穷举对方所有可行动作，将会导致被将军或者困毙
+   * 是否某方將死對方
+   * 實現邏輯：窮舉對方所有可行動作，將會導致被將軍或者困斃
    * @param isRed
    */
   isCheckmate(isRed = this.isRedTurn()): boolean {
-    //遍历对方可移动的盘面，是否走了以后没有被将，则说明没将死
+    //遍歷對方可移動的盤面，是否走了以後沒有被將，則說明沒將死
     for (let i = 0; i <= 8; i++) {
       for (let j = 0; j <= 9; j++) {
         if (this.arr[j][i] != 0) {

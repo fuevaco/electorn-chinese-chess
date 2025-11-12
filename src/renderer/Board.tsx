@@ -21,7 +21,7 @@ const Board = () => {
     }, [])
 
     const terminate = (red: boolean) => {
-        alert(`${red ? "红" : "黑"}方胜`)
+        alert(`${red ? "紅" : "黑"}方勝`)
     }
 
     const callBack = React.useCallback((prev: PlaySide, cur: PlaySide) => {

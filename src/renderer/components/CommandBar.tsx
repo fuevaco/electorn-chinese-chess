@@ -12,10 +12,10 @@ export const CommandBar = React.memo(({canback,back,restart}:CommandBarProps) =>
                 <button className='button-41' disabled={!canback} onClick={back}>悔棋</button>
             </div>
             <div>
-                <button className='button-41' onClick={restart}>重来</button>
+                <button className='button-41' onClick={restart}>重來</button>
             </div>
             <div>
-                <button className='button-41' disabled={true}>设置</button>
+                <button className='button-41' disabled={true}>設置</button>
             </div>
         </div>
     )

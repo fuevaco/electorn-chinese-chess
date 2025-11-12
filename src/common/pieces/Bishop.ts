@@ -40,13 +40,13 @@ export class Bishop extends BasePiece {
       gapYU = 4;
       gapYD = 0;
     }
-    //3点钟方向
+    //3點鐘方向
     movements.push([x + 2, y - 2]);
-    //9点钟方向
+    //9點鐘方向
     movements.push([x + 2, y + 2]);
-    //15点钟方向
+    //15點鐘方向
     movements.push([x - 2, y + 2]);
-    //21点钟方向
+    //21點鐘方向
     movements.push([x - 2, y - 2]);
     movements = movements.filter(([tx, ty]) => {
       if (

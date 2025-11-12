@@ -24,7 +24,7 @@ const isFacing = (
 };
 
 /**
- * 帅or将
+ * 帥or將
  */
 export class King extends BasePiece {
   GetChineseMovementName(
@@ -46,7 +46,7 @@ export class King extends BasePiece {
   }
 
   GetName(): string {
-    return this.isRed ? "帅" : "将";
+    return this.isRed ? "帥" : "將";
   }
   GetCode(): string {
     return this.isRed ? "K" : "k";
@@ -59,7 +59,7 @@ export class King extends BasePiece {
   ): [number, number][] {
     const movements: [number, number][] = [];
 
-    // 容错
+    // 容錯
     if (x < 0 && x > 8 && y < 0 && y > 9) {
       return movements;
     }
@@ -69,17 +69,17 @@ export class King extends BasePiece {
       return movements;
     }
 
-    // 红
+    // 紅
     if (c.isRed) {
       //上
       if (
         //可以上去
         y > 7 &&
-        //目标位置无棋
+        //目標位置無棋
         (board[y - 1][x] === 0 ||
-          // 或者是对方棋子
+          // 或者是對方棋子
           ChessArray[board[y - 1][x] - 1].IsRed() !== c.isRed) &&
-        //走完后不白脸
+        //走完後不白臉
         !isFacing(c, board, ChessArray, x, y - 1)
       ) {
         movements.push([x, y - 1]);
@@ -88,9 +88,9 @@ export class King extends BasePiece {
       if (
         //可以下去
         y < 9 &&
-        //目标位置无棋
+        //目標位置無棋
         (board[y + 1][x] === 0 ||
-          // 或者是对方棋子
+          // 或者是對方棋子
           ChessArray[board[y + 1][x] - 1].IsRed() !== c.isRed)
       ) {
         movements.push([x, y + 1]);
@@ -103,11 +103,11 @@ export class King extends BasePiece {
       if (
         //可以上去
         y < 2 &&
-        //目标位置无棋
+        //目標位置無棋
         (board[y + 1][x] === 0 ||
-          // 或者是对方棋子
+          // 或者是對方棋子
           ChessArray[board[y + 1][x] - 1].IsRed() !== c.isRed) &&
-        //走完后不白脸
+        //走完後不白臉
         !isFacing(c, board, ChessArray, x, y + 1)
       ) {
         movements.push([x, y + 1]);
@@ -116,9 +116,9 @@ export class King extends BasePiece {
       if (
         //可以下去
         y > 0 &&
-        //目标位置无棋
+        //目標位置無棋
         (board[y - 1][x] === 0 ||
-          // 或者是对方棋子
+          // 或者是對方棋子
           ChessArray[board[y - 1][x] - 1].IsRed() !== c.isRed)
       ) {
         movements.push([x, y - 1]);
@@ -129,11 +129,11 @@ export class King extends BasePiece {
     if (
       //可以左
       x > 3 &&
-      //目标位置无棋
+      //目標位置無棋
       (board[y][x - 1] === 0 ||
-        // 或者是对方棋子
+        // 或者是對方棋子
         ChessArray[board[y][x - 1] - 1].IsRed() !== c.isRed) &&
-      //走完后不白脸
+      //走完後不白臉
       !isFacing(c, board, ChessArray, x - 1, y)
     ) {
       movements.push([x - 1, y]);
@@ -143,11 +143,11 @@ export class King extends BasePiece {
     if (
       //可以右
       x < 5 &&
-      //目标位置无棋
+      //目標位置無棋
       (board[y][x + 1] === 0 ||
-        // 或者是对方棋子
+        // 或者是對方棋子
         ChessArray[board[y][x + 1] - 1].IsRed() !== c.isRed) &&
-      //走完后不白脸
+      //走完後不白臉
       !isFacing(c, board, ChessArray, x + 1, y)
     ) {
       movements.push([x + 1, y]);

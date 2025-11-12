@@ -44,7 +44,7 @@ export function GetTemplate() {
         },
         {
           id: OP_RESTART,
-          label: "重新开始",
+          label: "重新開始",
           click: () => {
             FeiJiang.mainWin.webContents.send(OP_RESTART);
           },
@@ -52,7 +52,7 @@ export function GetTemplate() {
         },
         {
           id: OP_ROTATION,
-          label: "翻转",
+          label: "翻轉",
           click: () => {
             FeiJiang.mainWin.webContents.send(OP_ROTATION);
           },
@@ -60,7 +60,7 @@ export function GetTemplate() {
         },
         {
           id: OP_TOGGLE_BGM,
-          label: FeiJiang.bgm ? "关闭音乐" : "打开音乐",
+          label: FeiJiang.bgm ? "關閉音樂" : "打開音樂",
           click: () => {
             FeiJiang.mainWin.webContents.send(OP_TOGGLE_BGM);
           },
@@ -68,12 +68,12 @@ export function GetTemplate() {
         },
         {
           id: OP_COYPY_FEN,
-          label: "复制盘面FEN码",
+          label: "複製盤面FEN碼",
           click: () => {
             clipboard.writeText(FeiJiang.boardStaus?.curFen);
             new Notification({
-              title: "复制成功",
-              body: "复制盘面FEN码成功",
+              title: "複製成功",
+              body: "複製盤面FEN碼成功",
             }).show();
           },
           enabled: !!FeiJiang.boardStaus,
@@ -81,16 +81,16 @@ export function GetTemplate() {
       ],
     },
     {
-      label: "游戏设置",
+      label: "遊戲設置",
       submenu: [
         {
-          label: "红方",
+          label: "紅方",
           submenu: [
             {
               label:
                 FeiJiang.redSide === "human"
-                  ? "象棋爱好者" + "☑️"
-                  : "象棋爱好者",
+                  ? "象棋愛好者" + "☑️"
+                  : "象棋愛好者",
               click: () => {
                 FeiJiang.redSide = "human";
                 Menu.setApplicationMenu(Menu.buildFromTemplate(GetTemplate()));
@@ -123,8 +123,8 @@ export function GetTemplate() {
             {
               label:
                 FeiJiang.blackSide === "human"
-                  ? "象棋爱好者" + "☑️"
-                  : "象棋爱好者",
+                  ? "象棋愛好者" + "☑️"
+                  : "象棋愛好者",
               click: () => {
                 FeiJiang.blackSide = "human";
                 Menu.setApplicationMenu(Menu.buildFromTemplate(GetTemplate()));
@@ -154,24 +154,24 @@ export function GetTemplate() {
       ],
     },
     {
-      label: "引擎设置",
+      label: "引擎設置",
     },
     {
       role: "help",
-      label: "帮助",
+      label: "幫助",
       submenu: [
         {
-          label: "关于",
+          label: "關於",
           click: () => {
             openAboutWindow({
               copyright: "Copyright (c) 2022 esfak47",
               win_options: {
                 parent: FeiJiang.mainWin,
                 modal: true,
-                title: "关于",
+                title: "關於",
               },
-              bug_link_text: "报告问题",
-              visit_source_code_text: "访问源码",
+              bug_link_text: "報告問題",
+              visit_source_code_text: "訪問源碼",
               show_close_button: "Close",
               use_version_info: false,
             });

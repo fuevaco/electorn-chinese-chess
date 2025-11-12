@@ -34,22 +34,22 @@ const Welcome = () => {
         }
         if (step === 1) {
             return <div className='menu_box'>
-                <a onClick={clickPvc}>人机对弈</a>
-                <a onClick={clickPvp}>人人对弈</a>
-                <a onClick={clickCvc}>机器对弈</a>
+                <a onClick={clickPvc}>人機對弈</a>
+                <a onClick={clickPvp}>人人對弈</a>
+                <a onClick={clickCvc}>機器對弈</a>
                 <a onClick={() => setStep(0)}>上一步</a>
             </div>
         } else if (step === 2) {
             return <div className='menu_box'>
-                <a onClick={() => { chessContext.setDifficulty(1); setStep(3) }}>初级水平</a>
-                <a onClick={() => { chessContext.setDifficulty(2); setStep(3) }}>中级水平</a>
-                <a onClick={() => { chessContext.setDifficulty(3); setStep(3) }}>高级水平</a>
+                <a onClick={() => { chessContext.setDifficulty(1); setStep(3) }}>初級水平</a>
+                <a onClick={() => { chessContext.setDifficulty(2); setStep(3) }}>中級水平</a>
+                <a onClick={() => { chessContext.setDifficulty(3); setStep(3) }}>高級水平</a>
                 <a onClick={() => setStep(1)}>上一步</a>
             </div>
         } else if (step === 3) {
             return <div className='menu_box'>
-                <a onClick={() => { navigate("/board/true"); }}>执红</a>
-                <a onClick={() => { chessContext.setRedSide(chessContext.blackSide); chessContext.setBlackSide(chessContext.redSide); navigate("/board/false"); }}>执黑</a>
+                <a onClick={() => { navigate("/board/true"); }}>執紅</a>
+                <a onClick={() => { chessContext.setRedSide(chessContext.blackSide); chessContext.setBlackSide(chessContext.redSide); navigate("/board/false"); }}>執黑</a>
                 <a onClick={() => setStep(2)}>上一步</a>
             </div>
         }
@@ -59,7 +59,7 @@ const Welcome = () => {
     }, [])
     return <div className='welcome'>
         <div className='title' style={{ padding: 60 }}>
-            <span>中国象棋</span>
+            <span>中國象棋</span>
         </div>
         <div className='stack'>
             <div className='menu'>

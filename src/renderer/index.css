@@ -29,7 +29,7 @@ body {
   flex-direction: column;
 }
 @font-face {
-  font-family: "longyinshoushu"; /* 重命名字体名 */
+  font-family: "longyinshoushu"; /* 重命名字體名 */
   src: url("../../assets/font/1645201229.ttf");
   font-weight: normal;
   font-style: normal;

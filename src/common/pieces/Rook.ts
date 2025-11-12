@@ -1,7 +1,7 @@
 import { BasePiece } from "./BaseChess";
 
 /**
- * 车
+ * 車
  */
 export class Rook extends BasePiece {
   GetChineseMovementName(
@@ -14,7 +14,7 @@ export class Rook extends BasePiece {
     throw new Error("Method not implemented.");
   }
   GetName(): string {
-    return "车";
+    return "車";
   }
   CanCheck():boolean{
     return true;
